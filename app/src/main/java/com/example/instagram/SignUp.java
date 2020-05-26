@@ -2,6 +2,7 @@ package com.example.instagram;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -27,6 +28,7 @@ public class SignUp extends AppCompatActivity implements View.OnClickListener {
     private EditText edtName, edtPunchSpeed, edtPunchpower, edtKickSpeed, edtkickPower;
     private TextView getData;
     private Button btnGetAllData;
+    private Button btnTransition;
 
     private String allKickBoxers;
 
@@ -43,6 +45,7 @@ public class SignUp extends AppCompatActivity implements View.OnClickListener {
         edtkickPower = findViewById(R.id.edtKickPower);
         getData = findViewById(R.id.txtGetData);
         btnGetAllData = findViewById(R.id.btnGetAllKickBoxers);
+        btnTransition = findViewById(R.id.btnNextActivity);
 
         ParseInstallation.getCurrentInstallation().saveInBackground();
 
@@ -86,6 +89,13 @@ public class SignUp extends AppCompatActivity implements View.OnClickListener {
                             }
                     }
                 });
+            }
+        });
+
+        btnTransition.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(SignUp.this, SignUpLoginActivity.class);
             }
         });
 
